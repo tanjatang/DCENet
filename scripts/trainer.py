@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-
+"""
+Created on Wed Dec  5 14:40:15 2018
+This is the module to extract the road users coexisting with a given ego user
+@author: cheng
+"""
 import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -92,8 +96,8 @@ def main():
         # ToDo chenge this to make compatible with linus
         dataname = os.path.splitext(os.path.basename(path))[0]
         # ToDo chenge this to make compatible with linus
-        # if not os.path.exists("/phys/ssd/tangxueq/processed_data/train/%s.npz"%dataname):
-        if not os.path.exists("/phys/ssd/slurmstorage/tangxueq/processed_data/train/%s.npz" % dataname):
+
+        if not os.path.exists("../processed_data/train/%s.npz" % dataname):
             # preprocess_data(path, args.obs_seq+args.pred_seq-1, args.enviro_pdim, "train")
             preprocess_data(seq_length=args.obs_seq + args.pred_seq - 1,
                             size=args.enviro_pdim,
@@ -106,7 +110,7 @@ def main():
         # dataname = path.split('\\')[-1].split('.')[0]
         dataname = os.path.splitext(os.path.basename(path))[0]
         # ToDo chenge this to make compatible with linus
-        if not os.path.exists("/phys/ssd/slurmstorage/tangxueq/processed_data/challenge/%s.npz" % dataname):
+        if not os.path.exists("../processed_data/challenge/%s.npz" % dataname):
             # preprocess_data(path, args.obs_seq-1, args.enviro_pdim, "challenge")
             preprocess_data(seq_length=args.obs_seq - 1,
                             size=args.enviro_pdim,
@@ -121,7 +125,7 @@ def main():
     # Define the callback and early stop
     timestr = time.strftime("%Y%m%d-%H%M%S")
     # ToDo chenge this to make compatible with linus
-    filepath = "/phys/ssd/slurmstorage/tangxueq/models/DCENet_%0.f_%s.hdf5" % (args.epochs, timestr)
+    filepath = "../models/DCENet_%0.f_%s.hdf5" % (args.epochs, timestr)
     ## Eraly stop
     # reduce_lr = ReduceLROnPlateau(monitor='val_loss', patience=100, mode='auto')
     earlystop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=args.patience)
@@ -238,7 +242,7 @@ def main():
 
     else:
         print('Run pretrained model')
-        train.load_weights("../best.hdf5")
+        train.load_weights("..models//best.hdf5")
 
     challenge_list = Datalist.challenge_data
     for challenge_dataname in challenge_list:
@@ -290,7 +294,7 @@ def main():
         challenge_pred_traj = writer.get_index(challenge_trajs, challenge_predictions)
         print("Collision in ranked prediction")
         check_collision(np.squeeze(challenge_pred_traj))
-        writer.write_pred_txt(challenge_trajs, challenge_predictions, challenge_dataname, "prediction")
+        writer.write_pred_txt(challenge_trajs, challenge_predictions, challenge_dataname, "../prediction")
 
 if __name__ == "__main__":
     main()
