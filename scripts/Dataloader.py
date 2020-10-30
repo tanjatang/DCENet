@@ -126,7 +126,7 @@ def preprocess_data(seq_length, size, dirname, path=None, data=None, aug_num=1, 
         data = np.genfromtxt(path, delimiter='')
         # challenge dataset have nan for prediction time steps
         data = data[~np.isnan(data).any(axis=1)]
-        dataname = path.split('/')[-1].split('.')[0]
+        dataname = os.path.splitext(os.path.basename(path))[0]
         print("process data %s ..." % dataname)
 
     for r in range(aug_num):
