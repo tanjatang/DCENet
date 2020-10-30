@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 15 20:57:00 2020
-@author: cheng,tang,liao
-"""
+
 import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -96,7 +93,7 @@ def main():
         dataname = os.path.splitext(os.path.basename(path))[0]
         # ToDo chenge this to make compatible with linus
         # if not os.path.exists("/phys/ssd/tangxueq/processed_data/train/%s.npz"%dataname):
-        if not os.path.exists("../processed_data/train/%s.npz" % dataname):
+        if not os.path.exists("/phys/ssd/slurmstorage/tangxueq/processed_data/train/%s.npz" % dataname):
             # preprocess_data(path, args.obs_seq+args.pred_seq-1, args.enviro_pdim, "train")
             preprocess_data(seq_length=args.obs_seq + args.pred_seq - 1,
                             size=args.enviro_pdim,
@@ -183,7 +180,7 @@ def main():
 
         print("Start training the model...")
         # Retrain from last time
-        # train.load_weights("/home/tangxueq/MA_tang/trajnet_challenge/best.hdf5")
+        # train.load_weights("../models/best.hdf5")
         train.fit(x=[train_occu, train_x, train_y_occu, train_y],
                   y=train_y,
                   shuffle=True,
