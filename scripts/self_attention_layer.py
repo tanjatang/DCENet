@@ -1,7 +1,6 @@
 """
 Created on Wed Oct 15 20:57:00 2020
-
-@author: tang
+@author: cheng,tang,liao
 """
 from keras_multi_head import MultiHeadAttention
 from keras.layers import Dense
