@@ -83,7 +83,6 @@ def main():
     # # specify the directory for training and challenge data
     # ToDo chenge this to make compatible with linus
     train_paths = sorted(glob.glob("../WORLD H-H TRAJ/%s/**/*.txt" % (args.train_set)))
-    # train_paths= sorted(glob.glob("../trajectories/%s/**/*.txt"%(args.train_set)))
     # # NOTE, here the challenge set is the "ONLINE" test set
     # # This is different from the "OFFLINE" test set
     # ToDo chenge this to make compatible with linus
@@ -92,11 +91,7 @@ def main():
 
     # Process the data
     for path in train_paths:
-        # dataname = path.split('\\')[-1].split('.')[0]
-        # ToDo chenge this to make compatible with linus
         dataname = os.path.splitext(os.path.basename(path))[0]
-        # ToDo chenge this to make compatible with linus
-
         if not os.path.exists("../processed_data/train/%s.npz" % dataname):
             # preprocess_data(path, args.obs_seq+args.pred_seq-1, args.enviro_pdim, "train")
             preprocess_data(seq_length=args.obs_seq + args.pred_seq - 1,
@@ -242,7 +237,7 @@ def main():
 
     else:
         print('Run pretrained model')
-        train.load_weights("..models//best.hdf5")
+        train.load_weights("..models/best.hdf5")
 
     challenge_list = Datalist.challenge_data
     for challenge_dataname in challenge_list:
