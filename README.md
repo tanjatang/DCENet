@@ -30,7 +30,7 @@ python /scripts/mkdir.py
 
 #### Test
 You can get the results as reported in the paper using our pretrained model.
-1. Download pretrained model (give a link)
+1. Download pretrained model from "../models/best.hdf5"
 2. 
 
 #### Train
