@@ -24,13 +24,13 @@ python /scripts/mkdir.py
 ```
  
 #### Data Preparation
-1. download raw data from directory "../WORLD H-H TRAJ", and save in "../processed_data"
+1. download raw data from directory /WORLD H-H TRAJ, and save in /processed_data
 2. run /scripts/trainer.py by setting arg.preprocess==True for data processing.
 **Note:** set arg.preprocess==False when you have already the processed data when you run /scripts/trainer.py to save time.
 
 #### Test
 You can get the results as reported in the paper using our pretrained model.
-1. Download pretrained model from "../models/best.hdf5"
+1. Download pretrained model from /models/best.hdf5
 
 #### Train
 You also can train from sratch by /scripts/trainer.py
