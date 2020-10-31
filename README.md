@@ -24,7 +24,7 @@ python /scripts/mkdir.py
 ```
  
 #### Data Preparation
-1. download raw data from xxxx, and save in xxxxx
+1. download raw data from directory "../WORLD H-H TRAJ", and save in "../processed_data"
 2. run /scripts/trainer.py by setting arg.preprocess=True for data processing.
 **Note:** set arg.preprocess=False when you have already the processed data when you run /scripts/trainer.py to save time.
 
