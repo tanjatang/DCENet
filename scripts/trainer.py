@@ -103,7 +103,6 @@ def main():
     for path in challenge_paths:
         # dataname = path.split('\\')[-1].split('.')[0]
         dataname = os.path.splitext(os.path.basename(path))[0]
-        # ToDo chenge this to make compatible with linus
         if not os.path.exists("../processed_data/challenge/%s.npz" % dataname):
             # preprocess_data(path, args.obs_seq-1, args.enviro_pdim, "challenge")
             preprocess_data(seq_length=args.obs_seq - 1,
@@ -118,7 +117,6 @@ def main():
 
     # Define the callback and early stop
     timestr = time.strftime("%Y%m%d-%H%M%S")
-    # ToDo chenge this to make compatible with linus
     filepath = "../models/DCENet_%0.f_%s.hdf5" % (args.epochs, timestr)
     ## Eraly stop
     # reduce_lr = ReduceLROnPlateau(monitor='val_loss', patience=100, mode='auto')
@@ -236,7 +234,7 @@ def main():
 
     else:
         print('Run pretrained model')
-        train.load_weights("..models/best.hdf5")
+        train.load_weights("../models/best.hdf5")
 
     challenge_list = Datalist.challenge_data
     for challenge_dataname in challenge_list:
@@ -288,7 +286,7 @@ def main():
         challenge_pred_traj = writer.get_index(challenge_trajs, challenge_predictions)
         print("Collision in ranked prediction")
         check_collision(np.squeeze(challenge_pred_traj))
-        writer.write_pred_txt(challenge_trajs, challenge_predictions, challenge_dataname, "../prediction")
+        writer.write_pred_txt(challenge_trajs, challenge_predictions, challenge_dataname, "prediction")
 
 if __name__ == "__main__":
     main()
