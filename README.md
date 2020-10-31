@@ -16,11 +16,6 @@ DCENet Structure
 
 ```
 pip install -r requiements.txt
-
-```
-Create necessary directories
-```
-python /scripts/mkdir.py
 ```
  
 #### Data Preparation
