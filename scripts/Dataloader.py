@@ -19,10 +19,8 @@ def loaddata(dataset_list, args, datatype="train"):
         occupancy = np.empty((0, args.obs_seq + args.pred_seq - 1, args.enviro_pdim[0], args.enviro_pdim[1], 3))
 
         if dataset_list[0] == "train_merged":
-        # ToDo chenge this to make compatible with linus
             for i in range(3):
                 data = np.load("../processed_data/train/%s.npz" % (dataset_list[0]+str(i)))
-                # data = np.load("/home/tangxueq/MA_tang_/processed_data/train/%s.npz" % (dataset_list[0]+str(i)))
                 _offsets, _traj_data, _occupancy = data["offsets"], data["traj_data"], data["occupancy"]
 
 
@@ -38,9 +36,7 @@ def loaddata(dataset_list, args, datatype="train"):
                 # if dataset != "train_merged":
                     # ToDo chenge this to make compatible with linus
                 data = np.load("../processed_data/train/%s.npz" % (dataset))
-
                 _offsets, _traj_data, _occupancy = data["offsets"], data["traj_data"], data["occupancy"]
-
                 print(dataset, "contains %.0f trajectories" % len(_offsets))
                 offsets = np.concatenate((offsets, _offsets), axis=0)
                 traj_data = np.concatenate((traj_data, _traj_data), axis=0)
@@ -54,26 +50,19 @@ def loaddata(dataset_list, args, datatype="train"):
         traj_data = np.empty((0, args.obs_seq, 4))
         occupancy = np.empty((0, args.obs_seq - 1, args.enviro_pdim[0], args.enviro_pdim[1], 3))
         for dataset in dataset_list:
-            # ToDo chenge this to make compatible with linus
             data = np.load("../processed_data/challenge/%s.npz" % (dataset))
             _offsets, _traj_data, _occupancy = data["offsets"], data["traj_data"], data["occupancy"]
             offsets = np.concatenate((offsets, _offsets), axis=0)
             traj_data = np.concatenate((traj_data, _traj_data), axis=0)
             occupancy = np.concatenate((occupancy, _occupancy), axis=0)
 
-
     elif datatype == "test":
         assert len(dataset_list) == 1, print("Only one untouched dataset is left fot testing!")
-
     elif datatype == "challenge":
         assert len(dataset_list) == 1, print("predict one by one")
-
     if datatype == "train":
-        # ToDo chenge this to make compatible with linus
         if not os.path.exists("../processed_data/train/train_merged2.npz"):
             # Save the merged training data
-            # ToDo chenge this to make compatible with linus
-
             # sigle file storage more than 16G is not supported in linux system, so I tried to store them in 3 files.
             # it's not necessary for windows user to separate data into 3 files
             offsets_list = [offsets[:15000,:],offsets[15000:30000,:],offsets[30000:,:]]
@@ -81,7 +70,6 @@ def loaddata(dataset_list, args, datatype="train"):
             occupancy_list = [occupancy[:15000,:],occupancy[15000:30000,:],occupancy[30000:,:]]
 
             for i in range(len(offsets_list)):
-
                 np.savez("../processed_data/train/train_merged%s.npz"%(i),
                          offsets=offsets_list[i],
                          traj_data=traj_data_list[i],
@@ -148,7 +136,6 @@ def preprocess_data(seq_length, size, dirname, path=None, data=None, aug_num=1, 
         print("traj_data shape", traj_data.shape)
         occupancy = circle_group_grid(offsets, maps.sorted_data, size)
         print("occupancy shape", occupancy.shape)
-
         if save:
             if r == 0:
                 # Save the original one
@@ -169,8 +156,6 @@ def preprocess_data(seq_length, size, dirname, path=None, data=None, aug_num=1, 
 
         else:
             return offsets, traj_data, occupancy
-
-
 def concat_maps(map_info):
     # save the map information into different channels
     enviro_maps = np.empty((map_info[0].shape[0], map_info[0].shape[1], len(map_info)))

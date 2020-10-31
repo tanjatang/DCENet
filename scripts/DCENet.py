@@ -11,9 +11,7 @@ from keras.losses import mse
 from keras.utils import plot_model
 from self_attention_layer import Encoder
 
-
 class dcenet():
-
     def __init__(self, args):
         # Store the hyperparameters
         self.args = args
@@ -75,7 +73,6 @@ class dcenet():
         self.x_dense_in = self.x_encoder(self.x_dense)
         self.x_state = GlobalAveragePooling1D()(self.x_dense_in)
 
-
         # encoded x
         self.x_endoced = concatenate([self.x_state, self.occus_out], name='x_endoced')
         self.x_encoded_dense = Dense(self.encoder_dim, activation='relu', name='x_encoded_dense')(self.x_endoced)
@@ -101,7 +98,6 @@ class dcenet():
                                 dropout=self.o_drop,
                                 name='y_DMaps_out')(self.y_occus_out_in)
 
-
         self.y_interaction_model = Model(self.y_occus_in, self.y_occus_out)
 
         # sequence model for the ground truth
@@ -111,7 +107,6 @@ class dcenet():
         self.y_encoder = Encoder(self.args.y_encoder_dim, self.args.y_encoder_head, self.args.y_encoder_dim, self.args.y_encoder_layers)
         self.y_dense_in = self.y_encoder(self.y_dense)
         self.y_state = GlobalAveragePooling1D()(self.y_dense_in)
-
 
         # encoded y
         self.y_endoced = concatenate([self.y_state, self.y_occus_out], name='y_endoced')
@@ -128,12 +123,10 @@ class dcenet():
         # (4) THE REPARAMETERIZATION TRICK FOR THE LATENT VARIABLE z
         # sampling function
         z_dim = self.z_dim
-
         def sampling(params):
             mu, log_var = params
             eps = K.random_normal(shape=(K.shape(mu)[0], z_dim), mean=0., stddev=1.0)
             return mu + K.exp(log_var / 2.) * eps
-
         # sampling z
         self.z = Lambda(sampling, output_shape=(self.z_dim,), name='z')([self.mu, self.log_var])
         # concatenate the z and x_encoded_dense
@@ -155,15 +148,11 @@ class dcenet():
         # Reconstrcting y
         self.z_d1 = self.z_decoder1(self.z_cond)
         self.z_d2 = self.z_decoder2(self.z_d1)
-
         self.z_d3 = self.z_decoder3(
             self.z_d2)
-
-
         self.z_d4 = self.z_decoder4(self.z_d3)
         self.z_d5 = self.z_decoder5(self.z_d4)
         self.y_prime = self.y_decoder(self.z_d5)
-
 
     def training(self):
         """
@@ -188,7 +177,6 @@ class dcenet():
                      [self.y_prime])
         opt = optimizers.Adam(lr=self.lr, beta_1=0.9, beta_2=0.999, decay=1e-6, amsgrad=False)
         dcenet_model.compile(optimizer=opt, loss=vae_loss)
-
 
         save_dir = '../models'
         filepath = os.path.join(save_dir, 'DCENet.pdf')

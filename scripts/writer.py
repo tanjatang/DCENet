@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-
 from ranking import gauss_rank
 from maps import Maps
 
@@ -69,11 +68,5 @@ def get_index(obs_trajs, pred_trajs):
                                  pos[1]])
 
     return np.asarray(trajectories)
-            
-    
-    
-    
-    
-    
 if __name__ == "__main__":
     test()

@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Wed Oct 15 20:57:00 2020
+@author: cheng,tang,liao
+"""
 import numpy as np
 import matplotlib.pyplot as plt
 from group_detection import get_prediction
@@ -22,10 +26,7 @@ def circle_group_grid(offsets, data, size, dist_thre=1.5, ratio=0.9, max_friends
         group_model_input.append(o_map)
     group_model_input = np.reshape(group_model_input, 
                                    [len(group_model_input), len(ego_data), size[0], size[1], 3])
-    return group_model_input 
-
-
-
+    return group_model_input
 def get_circle_occupancy_map(ego_data, offsets, size, friends=None, islog=False, max_speed=6):
     '''
     This is the function to get the occupancy for each ego user
@@ -36,13 +37,10 @@ def get_circle_occupancy_map(ego_data, offsets, size, friends=None, islog=False,
     offsets = np.reshape(offsets, (-1, 8))
     offsets[:, -1] = np.clip(offsets[:, -1], a_min=0, a_max=max_speed)    
     pad = 0
-    
     egoId = ego_data[0, 1]
     egoFrameList = ego_data[:, 0]
-    
     # Get the ego user's friends
     ego_friends = friends[friends[:, 0]==egoId, :]
-    
     ## comment out this to show the dynamic maps
     ## Note, it will slow down the data processing remarkably
     # plt.ion()    
@@ -103,19 +101,7 @@ def get_circle_occupancy_map(ego_data, offsets, size, friends=None, islog=False,
                    
         assert np.max(o_map[i])<=1 and np.min(o_map[i])>=0,\
             print("Occupancy not normalized", np.max(o_map[i]), np.min(o_map[i]), np.max(offsets[:, -1]))
-        
-        ## comment out this to show the dynamic maps
-        ## Note, it will slow down the data processing remarkably            
-        # plt.imshow(o_map[i])
-        # plt.pause(0.01)
-        # plt.ioff()
-        # plt.show()
-        # plt.gcf().clear()
-        # plt.close()
-                
     return o_map
-
-
 def normalize(count, data):
             norm_data = np.zeros_like(data)
             for i, row in enumerate(data):

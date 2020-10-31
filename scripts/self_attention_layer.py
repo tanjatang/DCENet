@@ -1,6 +1,6 @@
 """
 Created on Wed Oct 15 20:57:00 2020
-@author: cheng,tang,liao
+@author: tang
 """
 from keras_multi_head import MultiHeadAttention
 from keras.layers import Dense
@@ -8,7 +8,6 @@ from keras import backend as K
 from keras.layers.core import Dropout, Layer
 from keras.models import Sequential
 import numpy as np
-
 
 class LayerNormalization(Layer):
     '''big thx to git@github.com:kpot/keras-transformer.git'''
@@ -44,7 +43,6 @@ class LayerNormalization(Layer):
         result = self.gain * normalized_inputs + self.bias
         return result
 
-
 class TransformerBlock(Layer):
     def __init__(self, embed_dim, num_heads, ff_dim, rate=0.1):
         super(TransformerBlock, self).__init__()
@@ -67,7 +65,6 @@ class TransformerBlock(Layer):
         ffn_output = self.dropout2(ffn_output, training=training)
         return self.layernorm2(out1 + ffn_output)
 
-
 class PositionEncoding(Layer):
 
     def __init__(self, model_dim, **kwargs):
@@ -88,7 +85,6 @@ class PositionEncoding(Layer):
 
     def compute_output_shape(self, input_shape):
         return input_shape
-
 
 class Add(Layer):
 
