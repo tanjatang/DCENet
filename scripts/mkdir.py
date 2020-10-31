@@ -3,7 +3,6 @@ import os
 
 def mak_dir():
     # Make all the folders to save the intermediate results
-    # ToDo chenge this to make compatible with linus
     model_dir = "../models"
     processed_train = "../processed_data/train"
     processed_challenge = "../processed_data/challenge"
