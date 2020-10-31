@@ -31,7 +31,6 @@ You can get the results as reported in the paper using our pretrained model.
 You also can train from sratch by /scripts/trainer.py
 
 
-
 #### Bibtex
 
 If you find our work useful for you, please cite it as:
