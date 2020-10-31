@@ -289,4 +289,9 @@ def main():
         writer.write_pred_txt(challenge_trajs, challenge_predictions, challenge_dataname, "prediction")
 
 if __name__ == "__main__":
+    '''
+    "../prediction": save the DCENet model's prediction results
+    "../models" : save the trained model and pipeline files
+    "../processed_data/": save the processed data for training
+    '''
     main()
