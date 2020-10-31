@@ -2,7 +2,7 @@ Exploring  Dynamic  Context  for  Multi-path  Trajectory  Prediction
 ===
 
 
-DCENet
+DCENet Structure
 ===
 ![DCENet](https://github.com/tanjatang/DCENet/blob/master/pipeline/pipeline.png)
 
