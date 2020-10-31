@@ -25,7 +25,7 @@ from ranking import gauss_rank
 
 
 def main():
-    desc = "Keras implementation of CVAE for trajectory prediction"
+    desc = "Keras implementation of DCENet for trajectory prediction"
     parser = argparse.ArgumentParser(description=desc)
 
     parser.add_argument('--num_pred', type=int, default=25, help='This is the number of predictions for each agent')
@@ -81,7 +81,6 @@ def main():
     mak_dir()
 
     # # specify the directory for training and challenge data
-    # ToDo chenge this to make compatible with linus
     train_paths = sorted(glob.glob("../WORLD H-H TRAJ/%s/**/*.txt" % (args.train_set)))
     # # NOTE, here the challenge set is the "ONLINE" test set
     # # This is different from the "OFFLINE" test set
