@@ -39,7 +39,7 @@ If you find our work useful for you, please cite it as:
 @article{cheng2020exploring,
   title={Exploring Dynamic Context for Multi-path Trajectory Prediction},
   author={Cheng, Hao and Liao, Wentong and Tang, Xuejiao and Yang, Michael Ying and Sester, Monika and Rosenhahn, Bodo},
-  journal={arXiv preprint},
+  journal={arXiv preprint arXiV:2010.16267},
   year={2020}
 }
 ```
