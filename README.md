@@ -19,7 +19,7 @@ pip install -r requiements.txt
 ```
  
 #### Data Preparation
-1. download raw data from directory /WORLD H-H TRAJ, and save in /processed_data
+1. run mkdir.py
 2. run /scripts/trainer.py by setting arg.preprocess_data==True for data processing.
 **Note:** set arg.preprocess_data==False if you have already the processed data.
 
