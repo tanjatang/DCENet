@@ -19,7 +19,8 @@ pip install -r requiements.txt
 ```
  
 #### Data Preparation
-1. run mkdir.py
+1. run /scripts/mkdir.py
+**Note:** check if all of the listed directories haven already yieled. 
 2. run /scripts/trainer.py by setting arg.preprocess_data==True for data processing.
 **Note:** set arg.preprocess_data==False if you have already the processed data.
 
