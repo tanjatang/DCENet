@@ -20,9 +20,9 @@ pip install -r requiements.txt
  
 #### Data Preparation
 1.download raw data from directory /WORLD H-H TRAJ
-**Note:** check if all of the listed directories haven already yieled. 
+
 2. run /scripts/trainer.py by setting arg.preprocess_data==True for data processing.
-**Note:** set arg.preprocess_data==False if you have already the processed data.
+**Note:** check if all of the listed directories haven already yieled and set arg.preprocess_data==False if you have already the processed data.
 
 #### Test
 You can get the results as reported in the paper using our pretrained model.
