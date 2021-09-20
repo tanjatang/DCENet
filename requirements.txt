@@ -1,0 +1,91 @@
+#absl-py @ file:///tmp/build/80754af9/absl-py_1600297512717/work
+astor==0.8.1
+astunparse==1.6.3
+backcall==0.2.0
+blessings==1.7
+blinker==1.4
+brotlipy==0.7.0
+#cachetools @ file:///tmp/build/80754af9/cachetools_1596822027882/work
+certifi==2020.6.20
+cffi==1.14.0
+chardet==3.0.4
+click==7.1.2
+#cryptography @ file:///tmp/build/80754af9/cryptography_1601047419573/work
+cycler==0.10.0
+decorator==4.4.2
+gast==0.2.2
+#google-auth @ file:///tmp/build/80754af9/google-auth_1600960338579/work
+google-auth-oauthlib==0.4.1
+google-pasta==0.2.0
+gpustat==0.6.0
+#grpcio @ file:///tmp/build/80754af9/grpcio_1597424460877/work
+#h5py @ file:///tmp/build/80754af9/h5py_1593454121459/work
+#idna @ file:///tmp/build/80754af9/idna_1593446292537/work
+#importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1593446433964/work
+ipdb==0.13.3
+ipython==7.16.1
+ipython-genutils==0.2.0
+jedi==0.17.2
+#joblib @ file:///tmp/build/80754af9/joblib_1594236160679/work
+Keras==2.3.1
+#Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
+keras-embed-sim==0.8.0
+keras-layer-normalization==0.14.0
+keras-multi-head==0.27.0
+keras-pos-embd==0.11.0
+keras-position-wise-feed-forward==0.6.0
+Keras-Preprocessing==1.1.0
+keras-self-attention==0.46.0
+keras-transformer==0.38.0
+kiwisolver==1.2.0
+#Markdown @ file:///tmp/build/80754af9/markdown_1597433258348/work
+#matplotlib @ file:///tmp/build/80754af9/matplotlib-base_1597876339545/work
+#mkl-fft==1.2.0
+#mkl-random==1.1.1
+#mkl-service==2.3.0
+#numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1596233737064/work
+nvidia-ml-py3==7.352.0
+oauthlib==3.1.0
+olefile==0.46
+opt-einsum==3.1.0
+#pandas @ file:///tmp/build/80754af9/pandas_1598371470623/work
+parso==0.7.1
+pexpect==4.8.0
+pickleshare==0.7.5
+#Pillow @ file:///tmp/build/80754af9/pillow_1594307298074/work
+prompt-toolkit==3.0.7
+protobuf==3.12.4
+psutil==5.7.2
+ptyprocess==0.6.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+#pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pydot==1.4.1
+Pygments==2.7.1
+PyJWT==1.7.1
+#pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1594392929924/work
+pyparsing==2.4.7
+PySocks==1.7.1
+python-dateutil==2.8.1
+pytz==2020.1
+PyYAML==5.3.1
+#requests @ file:///tmp/build/80754af9/requests_1592841827918/work
+requests-oauthlib==1.3.0
+#rsa @ file:///tmp/build/80754af9/rsa_1596998415516/work
+#scikit-learn @ file:///tmp/build/80754af9/scikit-learn_1598379690588/work
+#scipy @ file:///tmp/build/80754af9/scipy_1597686625380/work
+#seaborn @ file:///tmp/build/80754af9/seaborn_1600553570093/work
+six==1.15.0
+#tensorboard==2.2.1
+#tensorboard-plugin-wit==1.6.0
+tensorflow==2.1.0
+tensorflow-estimator==2.1.0
+termcolor==1.1.0
+#threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl
+tornado==6.0.4
+traitlets==4.3.3
+#urllib3 @ file:///tmp/build/80754af9/urllib3_1597086586889/work
+wcwidth==0.2.5
+Werkzeug==1.0.1
+wrapt==1.12.1
+zipp==3.1.0
